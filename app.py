@@ -131,9 +131,6 @@ def posting():
         }
         db.posts.insert_one(doc)
 
-
-
-
         return jsonify({"result": "success", 'msg': '포스팅 성공'})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for("home"))

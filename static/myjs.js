@@ -57,6 +57,7 @@
                     date_give: today
                 },
                 success: function (response) {
+                console.log(response);
                     $("#modal-post").removeClass("is-active")
                                 window.location.reload()
                 }
