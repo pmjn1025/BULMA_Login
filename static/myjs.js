@@ -99,12 +99,18 @@
 
 
         // posting card 만드는 함수
+        // 프로필 클릭시 해당 사용자만 볼 수 있게 하기 위해 username을 매개변수로 잡는다.
+        function get_posts(username) {
+                 //username이 없으면 username을 빈칸으로 하겠다.
+                if (username==undefined) {
+                    username=""
+                }
 
-        function get_posts() {
             $("#post-box").empty()
             $.ajax({
                 type: "GET",
-                url: "/get_posts",
+                //url: "/get_posts",
+                url: `/get_posts?username_give=${username}`,
                 data: {},
                 success: function (response) {
                     console.log(response);
@@ -173,8 +179,9 @@
             })
         }
 
-        //서버에서 가져온 해당 포스트카드를 화면을 랜더링 하면서 실행.
-        $(document).ready(function () {
-            get_posts()
-        })
+        // 서버에서 가져온 해당 포스트카드를 화면을 랜더링 하면서 실행. 무조건 실행
+        // --> 그러나 메인페이지와 프로필페이지에서 이제 get_posts()동시에 사용하기 때문에 주석처리
+//        $(document).ready(function () {
+//            get_posts()
+//        })
 
